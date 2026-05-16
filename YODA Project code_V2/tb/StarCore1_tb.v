@@ -144,19 +144,21 @@ module StarCore1_tb;
     // =========================================================================
     initial begin
 
-        
 
         $display("=== StarCore-1 Integration Testbench ===");
         $display("=== Program loaded from ./test/test.prog ===");
         $display("=== Data memory loaded from ./test/test.data ===");
         $display("");
        
-        io_in = 16'h0280;
-        #1;
-        $display("DEBUG im[0]=%b", uut.DU.im.memory[0]);
-        $display("DEBUG im[12]=%b", uut.DU.im.memory[12]);
-        $display("DEBUG dm[0]=%b", uut.DU.dm.memory[0]);
-        $display("DEBUG dm[8]=%b", uut.DU.dm.memory[8]);
+        io_in = 16'h0280; //input to the input wire
+
+        #1; //delay for clock 
+
+       //debugginglines (ignore)
+       // $display("DEBUG im[0]=%b", uut.DU.im.memory[0]);
+      //  $display("DEBUG im[12]=%b", uut.DU.im.memory[12]);
+       // $display("DEBUG dm[0]=%b", uut.DU.dm.memory[0]);
+        //$display("DEBUG dm[8]=%b", uut.DU.dm.memory[8]);
         // -----------------------------------------------------------------------
         // Wait for the simulation to run long enough for your program to
         // complete at least one full pass. Adjust SIM_TIME in Parameter.v
@@ -164,12 +166,25 @@ module StarCore1_tb;
         // -----------------------------------------------------------------------
         `SIM_TIME;
 
+        #10  //delay for clock edge write to output
+
+        //debugging (ignore)
+        $display("--- Debug: PC and IO trace ---");
+        // If DUT exposes PC:
+        $display("Final PC     = %0d", uut.DU.pc_current);
+        // Trace when io_write fires
+        $monitor("[t=%0t] io_write=%b io_out=0x%h", $time, io_write, io_out);
+
+        //check what is in the io ports 
         $display("--- I/O Port Verification ---");
         $display("io_in   = 0x%h", io_in);
         $display("io_out  = 0x%h", io_out);
         $display("io_write asserted = %b", io_write);
 
-        // Check io_out captured io_in correctly
+        // -------------------------------------------------------------------------
+        // I/O port test
+        //-------------------------------------------------------------------------
+
         check16(io_out, 16'h0280, test_id);
         test_id = test_id + 1;
         // -----------------------------------------------------------------------
@@ -255,10 +270,20 @@ module StarCore1_tb;
             $display("=== ALL %0d INTEGRATION TESTS PASSED ===", test_id - 1);
         else
             $display("=== %0d / %0d INTEGRATION TESTS FAILED ===", fail_count, test_id - 1);
+        
 
+        // debugging (ignore)
+        $display("--- PC Trace ---");
+        $display("Current PC = %0d", uut.DU.pc_current);
+        $display("IR (last instr) = %b", uut.DU.instr);
         $finish;
     end
 
+    //ensures that io reads and write are happening at the right trigger
+    always @(posedge clk) begin
+    $display("[%0t] PC=%0d IR=%b mem_write=%b alu_result=0x%h",
+              $time, uut.DU.pc_current, uut.DU.instr, uut.CU.reg_write, uut.DU.alu_result);
+    end
 
         
 

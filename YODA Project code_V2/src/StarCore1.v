@@ -80,10 +80,10 @@ module StarCore1 (
 
     // Input port decode — inject io_in when LD reads from address 0x00FE
     wire io_read;
-    assign io_read = mem_read && (DU.alu_result == 16'h00FE);
+    assign io_read = mem_read && (DU.alu_result == 16'h0008);
 
     // Output port decode
-    assign io_write = mem_write && (DU.alu_result == 16'h00FF);
+    assign io_write = mem_write && (DU.alu_result == 16'h0009);
 
     // Output register — captures data when ST targets 0x00FF
     reg [15:0] io_out_reg;
