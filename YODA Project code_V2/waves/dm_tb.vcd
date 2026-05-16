@@ -1,0 +1,188 @@
+$date
+	Thu Apr 30 18:55:57 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module DataMemory_tb $end
+$var wire 16 ! mem_read_data [15:0] $end
+$var reg 1 " clk $end
+$var reg 16 # mem_access_addr [15:0] $end
+$var reg 1 $ mem_read $end
+$var reg 16 % mem_write_data [15:0] $end
+$var reg 1 & mem_write_en $end
+$var integer 32 ' fail_count [31:0] $end
+$var integer 32 ( test_id [31:0] $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 16 ) mem_access_addr [15:0] $end
+$var wire 1 $ mem_read $end
+$var wire 16 * mem_write_data [15:0] $end
+$var wire 1 & mem_write_en $end
+$var wire 3 + ram_addr [2:0] $end
+$var wire 16 , mem_read_data [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1 ,
+b0 +
+b0 *
+b0 )
+b1 (
+b0 '
+0&
+b0 %
+1$
+b0 #
+0"
+b1 !
+$end
+#5000
+b10 !
+b10 ,
+b1 +
+b1 #
+b1 )
+b10 (
+1"
+#10000
+b11 !
+b11 ,
+b10 +
+b10 #
+b10 )
+b11 (
+0"
+#15000
+b100 !
+b100 ,
+b11 +
+b11 #
+b11 )
+b100 (
+1"
+#20000
+b101 !
+b101 ,
+b100 +
+b100 #
+b100 )
+b101 (
+0"
+#25000
+b110 !
+b110 ,
+b101 +
+b101 #
+b101 )
+b110 (
+1"
+#30000
+b111 !
+b111 ,
+b110 +
+b110 #
+b110 )
+b111 (
+0"
+#35000
+b1000 !
+b1000 ,
+b111 +
+b111 #
+b111 )
+b1000 (
+1"
+#40000
+b1 !
+b1 ,
+b0 +
+b1010101111001101 %
+b1010101111001101 *
+b0 #
+b0 )
+1&
+1$
+b1001 (
+0"
+#45000
+b1010101111001101 !
+b1010101111001101 ,
+1"
+#50000
+0"
+#51000
+b10 !
+b10 ,
+b1 +
+b1001000110100 %
+b1001000110100 *
+b1 #
+b1 )
+b1010 (
+#55000
+b1001000110100 !
+b1001000110100 ,
+1"
+#60000
+0"
+#61000
+b0 +
+b0 !
+b0 ,
+b0 #
+b0 )
+0$
+0&
+b1011 (
+#65000
+1"
+#66000
+b11 +
+b11 #
+b11 )
+b1100 (
+#70000
+0"
+#71000
+b1011111011101111 %
+b1011111011101111 *
+1&
+b1101 (
+#75000
+1"
+#76000
+b1011111011101111 !
+b1011111011101111 ,
+1$
+0&
+#80000
+0"
+#81000
+b0 !
+b0 ,
+b1101111010101101 %
+b1101111010101101 *
+0$
+b1110 (
+#85000
+1"
+#86000
+b1011111011101111 !
+b1011111011101111 ,
+1$
+#90000
+0"
+#91000
+b0 !
+b0 ,
+0$
+b1111 (
