@@ -1,4 +1,5 @@
-# Practical 4: StarCore-1: Single-Cycle Processor in Verilog
+# StarCore-1: Single-Cycle Processor with Fixed-Point arithemtic 
+Skip to line 299 for fixed point extension details
 
 ## Overview
 
