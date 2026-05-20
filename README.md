@@ -448,3 +448,13 @@ If your program needs more clock cycles to complete, increase `SIM_TIME` in `src
 - Use `<=` (non-blocking) inside `always @(posedge clk)` blocks (registers, memory writes)
 - Use `=` (blocking) inside combinational `always @(*)` blocks (ALU, control unit)
 - Use `assign` for purely combinational wires
+
+## Report Format
+
+The FPC-16 final report uses the IEEE conference two-column
+format for the main body (Abstract through Conclusion), as
+recommended by the EEE4120F HPES 2026 project guidelines.
+
+The title page uses a custom UCT-branded cover page rather than the standard IEEE author-block header. This was chosen for a more professional presentation, and is permitted by the project brief which explicitly allows departure from the IEEE template provided the rubric criteria are met and the justification is documented here.
+
+All required IEEE elements (names, student numbers, course, institution, date) are present, and the cover page does not count toward the 8-page limit.
